@@ -1,4 +1,4 @@
-# Chess Master AI
+# Chess Master AI with Leela Zero engine
 
 ![Simple Prototype](simple-prototype.gif)
 
