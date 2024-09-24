@@ -1,6 +1,6 @@
 # Chess Master AI
 
-ffmpeg -i simple-prototype.mp4 -vf "fps=10,scale=320:-1:flags=lanczos" simple-prototype.gif
+![Simple Prototype](simple-prototype.gif)
 
 **Chess Master AI** is a web application that integrates a powerful chess engine, **Lc0**, with a user-friendly interface to evaluate chess positions. The project uses a React frontend and a Flask backend, with Lc0 acting as the backend engine for evaluating both FEN and move sequences.
 
