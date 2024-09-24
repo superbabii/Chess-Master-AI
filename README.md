@@ -32,7 +32,7 @@
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/superbabii/ChessMasterAI.git
+git clone https://github.com/superbabii/Chess-Master-AI.git
 cd ChessMasterAI
 ```
 
