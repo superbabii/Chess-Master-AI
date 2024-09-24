@@ -1,7 +1,3 @@
-Here’s an updated version of the README file with only the `/evaluate` endpoint that handles both **FEN** and **moves**:
-
----
-
 # Chess Master AI
 
 ![Simple Prototype](simple-prototype.mp4)
