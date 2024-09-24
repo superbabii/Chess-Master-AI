@@ -105,83 +105,83 @@ cd ChessMasterAI
 
    ### Sample Code for Python Bindings
 
-  Here's a Python example that demonstrates how to interact with the Lc0 engine using the Python bindings:
-  
-  ```python
-  from lczero.backends import Weights, Backend, GameState
-  
-  # Step 1: Load Weights from the specified path
-  weights_path = "744706.pb.gz"
-  try:
-      w = Weights(weights_path)
-      print(f"Loaded weights from {weights_path}")
-      print(f"Number of filters in the network: {w.filters()}")
-  except Exception as e:
-      print(f"Error loading weights: {e}")
-      raise
-  
-  # Step 2: Display available backends
-  available_backends = Backend.available_backends()
-  print(f"Available Backends: {available_backends}")
-  
-  # Step 3: Create backend using the loaded weights
-  try:
-      b = Backend(weights=w)
-      print(f"Backend created successfully with backend type: {b}")
-  except Exception as e:
-      print(f"Error creating backend: {e}")
-      raise
-  
-  # Step 4: Initialize GameState with a series of moves
-  try:
-      g = GameState(moves=['e2e4', 'e7e5'])
-      print("GameState after moves [e2e4, e7e5]:")
-      print(g.as_string())
-  except Exception as e:
-      print(f"Error initializing GameState with moves: {e}")
-      raise
-  
-  # Step 5: Create input for the backend from the current GameState
-  try:
-      i1 = g.as_input(b)
-  except Exception as e:
-      print(f"Error creating input for backend: {e}")
-      raise
-  
-  # Step 6: Initialize another GameState using FEN notation
-  fen = '2R5/5kpp/4p3/p4p2/3B4/1K5N/4rNPP/8 b - - 0 29'
-  try:
-      g_fen = GameState(fen=fen)
-      i2 = g_fen.as_input(b)
-      print("GameState from FEN:")
-      print(g_fen.as_string())
-  except Exception as e:
-      print(f"Error initializing GameState with FEN: {e}")
-      raise
-  
-  # Step 7: Evaluate both game states using the backend
-  try:
-      o1, o2 = b.evaluate(i1, i2)
-      print(f"Evaluation for first state (q): {o1.q():.6f}")
-      print(f"Evaluation for second state (q): {o2.q():.6f}")
-  except Exception as e:
-      print(f"Error during evaluation: {e}")
-      raise
-  
-  # Step 8: Get the move probabilities from the first game state
-  try:
-      move_probs = list(zip(g.moves(), o1.p_softmax(*g.policy_indices())))
-      print("\nMove probabilities for the first game state:")
-      for move, prob in move_probs:
-          print(f"Move: {move}, Probability: {prob:.6f}")
-  except Exception as e:
-      print(f"Error retrieving move probabilities: {e}")
-      raise
-  ```
-  
-  This sample code demonstrates loading the weights, evaluating positions based on moves or FEN notation, and retrieving evaluation results from the Lc0 engine.
-  
-  ---
+     Here's a Python example that demonstrates how to interact with the Lc0 engine using the Python bindings:
+     
+     ```python
+     from lczero.backends import Weights, Backend, GameState
+     
+     # Step 1: Load Weights from the specified path
+     weights_path = "744706.pb.gz"
+     try:
+         w = Weights(weights_path)
+         print(f"Loaded weights from {weights_path}")
+         print(f"Number of filters in the network: {w.filters()}")
+     except Exception as e:
+         print(f"Error loading weights: {e}")
+         raise
+     
+     # Step 2: Display available backends
+     available_backends = Backend.available_backends()
+     print(f"Available Backends: {available_backends}")
+     
+     # Step 3: Create backend using the loaded weights
+     try:
+         b = Backend(weights=w)
+         print(f"Backend created successfully with backend type: {b}")
+     except Exception as e:
+         print(f"Error creating backend: {e}")
+         raise
+     
+     # Step 4: Initialize GameState with a series of moves
+     try:
+         g = GameState(moves=['e2e4', 'e7e5'])
+         print("GameState after moves [e2e4, e7e5]:")
+         print(g.as_string())
+     except Exception as e:
+         print(f"Error initializing GameState with moves: {e}")
+         raise
+     
+     # Step 5: Create input for the backend from the current GameState
+     try:
+         i1 = g.as_input(b)
+     except Exception as e:
+         print(f"Error creating input for backend: {e}")
+         raise
+     
+     # Step 6: Initialize another GameState using FEN notation
+     fen = '2R5/5kpp/4p3/p4p2/3B4/1K5N/4rNPP/8 b - - 0 29'
+     try:
+         g_fen = GameState(fen=fen)
+         i2 = g_fen.as_input(b)
+         print("GameState from FEN:")
+         print(g_fen.as_string())
+     except Exception as e:
+         print(f"Error initializing GameState with FEN: {e}")
+         raise
+     
+     # Step 7: Evaluate both game states using the backend
+     try:
+         o1, o2 = b.evaluate(i1, i2)
+         print(f"Evaluation for first state (q): {o1.q():.6f}")
+         print(f"Evaluation for second state (q): {o2.q():.6f}")
+     except Exception as e:
+         print(f"Error during evaluation: {e}")
+         raise
+     
+     # Step 8: Get the move probabilities from the first game state
+     try:
+         move_probs = list(zip(g.moves(), o1.p_softmax(*g.policy_indices())))
+         print("\nMove probabilities for the first game state:")
+         for move, prob in move_probs:
+             print(f"Move: {move}, Probability: {prob:.6f}")
+     except Exception as e:
+         print(f"Error retrieving move probabilities: {e}")
+         raise
+     ```
+     
+     This sample code demonstrates loading the weights, evaluating positions based on moves or FEN notation, and retrieving evaluation results from the Lc0 engine.
+     
+     ---
 
 6. **Run the Backend**:
 
