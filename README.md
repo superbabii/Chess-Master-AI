@@ -1,6 +1,7 @@
 # Chess-Master-AI
 
 
-<img src="test.png" alt="Simple Task Management System">
-![Simple Prototype](simple-prototype.mp4)
+<video width="320" height="240" controls>
+  <source src="simple-prototype.mp4" type="video/mp4">
+</video>
 
