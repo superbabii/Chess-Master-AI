@@ -13,7 +13,7 @@ w = Weights(weights_path)
 backend = Backend(weights=w)
 
 # OpenAI API Key (ensure the key is stored securely in environment variables)
-openai.api_key = "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"
+openai.api_key = ""
 
 
 @app.route('/evaluate', methods=['POST'])
